@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container-md col-md-8 mt-3 mb-3 text-center">
+    <a href = "{{ path('course_add') }}">
+        <img src = "{{ asset('images/add.jpg') }}" width="60" height="50" >
+    </a>
+
+    <table class="table table-responsive-md mt-3 text-center">
+        <thead>
+            <tr>
+                <th> Cours ID </th>
+                <th> Cours Name </th>
+                
+                <th> Cours Member </th>
+                <th> Cours Code </th>
+                <th> Cours note </th>
+                <th> Edit </th>
+                <th> Delete </th>
+            </tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <td>{{ course.id }} </td> 
+                    <td>{{ course.name }} </td>    
+                    <td>{{ course.member }} </td>
+                    <td>{{ course.code }} </td>
+                    <td>{{ course.note }} </td>
+                    <td>
+                        <a href="{{ path('course_edit', {'id': course.id}) }}">
+                            <img src="{{ asset('images/edit.png')}}" width="50" height="50" >
+                        </a>
+                        
+                    </td>
+                    <td>
+                        <a href="{{ path('course_delete', {'id': course.id}) }}"
+                            onclick="return container('Do you want to delete this course?')">
+                            <img src="{{ asset('images/delete.png')}}" width="50" height="50" >
+                         </a>
+                    </td>
+                </tr>
+           
+        </tbody> 
+    </table>
+{% endblock %}
+
